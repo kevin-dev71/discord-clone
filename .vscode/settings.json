@@ -1,0 +1,25 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "tailwindCSS.classAttributes": [
+    "class",
+    ".*className",
+    ".*Styles*",
+    "color",
+  ],
+  "errorLens.excludePatterns": [
+    "**/node_modules/**",
+    "**/.next/**"
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.lintTask.enable": true,
+}
