@@ -156,6 +156,10 @@
                 "^\\u0000"
               ],
               [
+                "@uploadthing/react/styles\\.css$", // Match only this specific style import
+                ".*(style)(/.*)"
+              ],
+              [
                 "^@(/.*)(types|type)(/.*)"
               ]
             ]
