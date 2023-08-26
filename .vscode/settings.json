@@ -11,6 +11,10 @@
     ".*Styles*",
     "color",
   ],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
   "errorLens.excludePatterns": [
     "**/node_modules/**",
     "**/.next/**"

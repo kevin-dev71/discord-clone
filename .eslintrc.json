@@ -130,7 +130,7 @@
                 "^react$",
                 "^next",
                 "^[a-z]",
-                "^@headlessui"
+                "^@hookform"
               ],
               [
                 "^@(/.*)(common)(/.*)"
