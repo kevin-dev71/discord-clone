@@ -130,7 +130,9 @@
                 "^react$",
                 "^next",
                 "^[a-z]",
-                "^@hookform"
+                "^@hookform",
+                "^@uploadthing"
+
               ],
               [
                 "^@(/.*)(common)(/.*)"
