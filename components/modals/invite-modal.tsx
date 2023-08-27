@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import axios from "axios"
 import { Check, Copy, RefreshCw } from "lucide-react"
 
 import { useModal } from "@/hooks/use-modal-store"
@@ -13,7 +14,7 @@ import { Label } from "@/components/ui/label"
 
 export const InviteModal = () => {
   // STATES
-  const { isOpen, onClose, type, data } = useModal()
+  const { onOpen, isOpen, onClose, type, data } = useModal()
   const origin = useOrigin()
   const [copied, setCopied] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -33,6 +34,18 @@ export const InviteModal = () => {
     }, 1000)
   }
 
+  const onNew = async () => {
+    try {
+      setIsLoading(true)
+      const response = await axios.patch(`/api/servers/${server?.id}/invite-code`)
+      onOpen("invite", { server: response.data })
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <Dialog
       open={isModalOpen}
@@ -50,10 +63,12 @@ export const InviteModal = () => {
             <Input
               className="border-0 bg-zinc-300/50 text-black focus-visible:ring-0 focus-visible:ring-offset-0"
               value={inviteUrl}
+              disabled={isLoading}
             />
             <Button
               size="icon"
               onClick={onCopy}
+              disabled={isLoading}
             >
               {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
             </Button>
@@ -62,6 +77,8 @@ export const InviteModal = () => {
             className="mt-4 text-xs text-zinc-500"
             variant="link"
             size="sm"
+            disabled={isLoading}
+            onClick={onNew}
           >
             Generate a new link
             <RefreshCw className="ml-2 h-4 w-4" />
