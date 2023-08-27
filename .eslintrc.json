@@ -3,11 +3,13 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:tailwindcss/recommended",
     "plugin:jsx-a11y/recommended",
-    "standard-react"
+    "standard-react",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "env": {
@@ -26,9 +28,17 @@
     "react",
     "jsx-a11y",
     "@typescript-eslint",
-    "simple-import-sort"
+    "simple-import-sort",
+    "prettier"
   ],
   "rules": {
+    "react/jsx-max-props-per-line": [2, { "maximum": 1,"when": "multiline" }],
+    "react/jsx-first-prop-new-line": [2, "multiline"],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-closing-bracket-location": [
+      2,
+      "tag-aligned"
+    ],
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "no-unused-expressions": "error",
