@@ -14,7 +14,10 @@ const ActionTooltip = ({ label, side, align, children }: ActionTooltipProps) => 
     <TooltipProvider>
       <Tooltip delayDuration={50}>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent side={side} align={align}>
+        <TooltipContent
+          side={side}
+          align={align}
+        >
           <p className="text-sm font-semibold capitalize">{label.toLowerCase()}</p>
         </TooltipContent>
       </Tooltip>

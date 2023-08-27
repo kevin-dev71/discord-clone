@@ -1,11 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+
+import { useModal } from "@/hooks/use-modal-store"
 
 import FileUpload from "@/components/file-upload"
 import { Button } from "@/components/ui/button"
@@ -36,18 +37,13 @@ const formSchema = z.object({
   }),
 })
 
-export const InitialModal = () => {
-  // states
-  const [isMounted, setIsMounted] = useState(false)
-
+export const CreateServerModal = () => {
   // router navigation
   const router = useRouter()
 
-  // to fix modal hidratation UI error
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
+  const { isOpen, onClose, type } = useModal()
 
+  // FORM INITIALIZATION
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,23 +52,32 @@ export const InitialModal = () => {
     },
   })
 
-  const isLoading = form.formState.isSubmitting
-
+  // HANDLERS
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.post("/api/servers", values)
       form.reset()
       router.refresh()
-      window.location.reload()
+      onClose()
     } catch (error) {
       console.error(error)
     }
   }
 
-  if (!isMounted) return null
+  const handleClose = () => {
+    form.reset()
+    onClose()
+  }
+
+  // UI STATES
+  const isModalOpen = isOpen && type === "createServer"
+  const isLoading = form.formState.isSubmitting
 
   return (
-    <Dialog open>
+    <Dialog
+      open={isModalOpen}
+      onOpenChange={handleClose}
+    >
       <DialogContent className="overflow-hidden bg-white p-0 text-black">
         <DialogHeader className="px-6 pt-8">
           <DialogTitle className="text-center text-2xl font-bold">
