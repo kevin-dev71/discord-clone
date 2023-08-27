@@ -7,6 +7,7 @@ import qs from "query-string"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { ChannelType } from "@prisma/client"
 
 import { useModal } from "@/hooks/use-modal-store"
 
@@ -34,7 +35,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { ChannelType } from "@prisma/client"
 
 const formSchema = z.object({
   name: z

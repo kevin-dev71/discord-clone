@@ -2,6 +2,7 @@
 
 import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react"
 import type { FC } from "react"
+import { MemberRole } from "@prisma/client"
 
 import { useModal } from "@/hooks/use-modal-store"
 
@@ -13,7 +14,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import type { ServerWithMembersWithProfiles } from "@/types"
-import { MemberRole } from "@prisma/client"
 
 interface ServerHeaderProps {
   server: ServerWithMembersWithProfiles

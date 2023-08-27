@@ -14,6 +14,7 @@ import {
   ShieldQuestion,
 } from "lucide-react"
 import qs from "query-string"
+import type { MemberRole } from "@prisma/client"
 
 import { useModal } from "@/hooks/use-modal-store"
 
@@ -38,7 +39,6 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { UserAvatar } from "@/components/user-avatar"
 import type { ServerWithMembersWithProfiles } from "@/types"
-import type { MemberRole } from "@prisma/client"
 
 const roleIconMap = {
   GUEST: null,

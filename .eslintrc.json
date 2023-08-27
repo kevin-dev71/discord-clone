@@ -141,6 +141,7 @@
                 "^next",
                 "^[a-z]",
                 "^@hookform",
+                "^@prisma",
                 "^@uploadthing"
 
               ],
