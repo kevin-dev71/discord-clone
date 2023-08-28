@@ -140,6 +140,7 @@
                 "^react$",
                 "^next",
                 "^[a-z]",
+                "^@emoji-mart",
                 "^@hookform",
                 "^@prisma",
                 "^@uploadthing"
