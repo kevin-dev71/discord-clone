@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation"
 import { ShieldAlert, ShieldCheck } from "lucide-react"
-import type { Member, Profile, Server } from "@prisma/client"
+import type { Member, Profile } from "@prisma/client"
 import { MemberRole } from "@prisma/client"
 
 import { UserAvatar } from "@/components/user-avatar"
@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils"
 
 interface ServerMemberProps {
   member: Member & { profile: Profile }
-  server: Server
 }
 
 const roleIconMap = {
@@ -19,7 +18,7 @@ const roleIconMap = {
   [MemberRole.ADMIN]: <ShieldAlert className="ml-2 h-4 w-4 text-rose-500" />,
 }
 
-export const ServerMember = ({ member, server }: ServerMemberProps) => {
+export const ServerMember = ({ member }: ServerMemberProps) => {
   const params = useParams()
   const router = useRouter()
 
