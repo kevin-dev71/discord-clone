@@ -9,4 +9,4 @@ npm i --save-dev @typescript-eslint/eslint-plugin @typescript-eslint/parser esli
 
 ``````
 
-https://youtu.be/ZbX4Ok9YX94?si=PUaHC541rmt1o82t&t=25921
+https://youtu.be/ZbX4Ok9YX94?si=tGzzUh7wco2M55rJ&t=31811
