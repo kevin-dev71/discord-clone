@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 import { useModal } from "@/hooks/use-modal-store"
 
-import FileUpload from "@/components/file-upload"
+import { FileUpload } from "@/components/file-upload"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
