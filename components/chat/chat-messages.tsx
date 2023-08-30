@@ -9,8 +9,7 @@ import type { Member, Message, Profile } from "@prisma/client"
 import { useChatQuery } from "@/hooks/use-chat-query"
 import { useChatSocket } from "@/hooks/use-chat-socket"
 
-// import { useChatScroll } from "@/hooks/use-chat-scroll"
-// import { useChatSocket } from "@/hooks/use-chat-socket"
+import { useChatScroll } from "@/hooks/use-chat-scroll"
 import { ChatItem } from "@/components/chat/chat-item"
 import { ChatWelcome } from "@/components/chat/chat-welcome"
 
@@ -59,13 +58,13 @@ export const ChatMessages = ({
     paramValue,
   })
   useChatSocket({ queryKey, addKey, updateKey })
-  // useChatScroll({
-  //   chatRef,
-  //   bottomRef,
-  //   loadMore: fetchNextPage,
-  //   shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
-  //   count: data?.pages?.[0]?.items?.length ?? 0,
-  // })
+  useChatScroll({
+    chatRef,
+    bottomRef,
+    loadMore: fetchNextPage,
+    shouldLoadMore: !isFetchingNextPage && !!hasNextPage,
+    count: data?.pages?.[0]?.items?.length ?? 0,
+  })
 
   if (status === "loading") {
     return (
