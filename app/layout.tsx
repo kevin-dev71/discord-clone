@@ -4,6 +4,7 @@ import { Open_Sans } from "next/font/google"
 import "./globals.css"
 
 import ModalProvider from "@/components/providers/modal-provider"
+import { QueryProvider } from "@/components/providers/query-provider"
 import { SocketProvider } from "@/components/providers/socket-provider"
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { cn } from "@/lib/utils"
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <SocketProvider>
               <ModalProvider />
-              {children}
+              <QueryProvider>{children}</QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </body>
